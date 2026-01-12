@@ -48,6 +48,41 @@ let AIAutonomy = 0;
    UI RENDERING
 ========================================================= */
 
+/* =========================================================
+   SAVE / LOAD SYSTEM
+========================================================= */
+
+function saveGame() {
+  const saveData = {
+    phase,
+    clips,
+    totalClips,
+    money,
+    price,
+    autoClippers,
+    marketing,
+    trust,
+    processors,
+    memory,
+    drones,
+    earthResources,
+    wire,
+    probes,
+    universeConverted,
+    probeAI,
+    AIAutonomy
+  };
+  localStorage.setItem("paperclipsSave", JSON.stringify(saveData));
+}
+
+function loadGame() {
+  const saved = localStorage.getItem("paperclipsSave");
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+  Object.assign(window, data);
+}
+
 function updateUI() {
   document.getElementById("phaseLabel").textContent =
     ["I","II","III","IV"][phase-1];
