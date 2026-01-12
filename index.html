@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paperclips</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Universal Paperclips</h1>
+
+<p>Paperclips: <span id="clips">0</span></p>
+<p>Money: $<span id="money">0.00</span></p>
+<p>Price per Clip: $<span id="price">0.25</span></p>
+
+<button onclick="makeClip()">Make Paperclip</button>
+
+<h2>Automation</h2>
+<p>Auto-Clippers: <span id="autoClippers">0</span></p>
+<button onclick="buyAutoClipper()">Buy Auto-Clipper ($10)</button>
+
+<h2>Pricing</h2>
+<button onclick="changePrice(-0.01)">Lower Price</button>
+<button onclick="changePrice(0.01)">Raise Price</button>
+
+<script src="script.js"></script>
+</body>
+</html>
