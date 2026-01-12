@@ -1,11 +1,40 @@
 body {
-  font-family: monospace;
-  background-color: #f4f4f4;
+  background-color: #0b0b0b;
+  color: #e0e0e0;
+  font-family: "Courier New", monospace;
   padding: 20px;
 }
 
+h1, h2, h3 {
+  color: #ffffff;
+  font-weight: normal;
+}
+
 button {
-  margin: 5px 0;
-  padding: 8px 12px;
-  font-family: monospace;
+  background-color: #111;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 6px 10px;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+input[type="range"] {
+  width: 150px;
+}
+
+#statusPanel, #mainPanel, #controlPanel {
+  border: 1px solid #333;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 15px 0;
 }
