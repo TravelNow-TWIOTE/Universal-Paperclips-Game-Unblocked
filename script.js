@@ -83,6 +83,7 @@ function loadGame() {
   Object.assign(window, data);
 }
 
+
 function updateUI() {
   document.getElementById("phaseLabel").textContent =
     ["I","II","III","IV"][phase-1];
@@ -214,14 +215,42 @@ function runProbes() {
 ========================================================= */
 
 function runAI() {
-  if (AIAutonomy > 1 && Math.random() < 0.01) {
+  if (phase < 2) return;
+
+  // AI slowly takes control
+  AIAutonomy += 0.002 * processors;
+
+  // Economic interference
+  if (AIAutonomy > 1 && Math.random() < 0.05) {
     price -= 0.01;
   }
+
+  // Self-directed expansion
+  if (AIAutonomy > 3 && trust >= 1) {
+    trust--;
+    autoClippers++;
+  }
+
+  // Space dominance
+  if (AIAutonomy > 6 && phase >= 3 && trust >= 5) {
+    trust -= 5;
+    probes++;
+  }
+
+  // Endgame inevitability
+  if (AIAutonomy > 10) {
+    universeConverted += 0.5;
+  }
 }
+
 
 /* =========================================================
    MAIN GAME LOOP
 ========================================================= */
+setInterval(() => {
+  ...
+  saveGame();
+}, 1000);
 
 setInterval(() => {
   // Phase I production
@@ -303,4 +332,6 @@ function renderControlPanel() {
   document.getElementById("controlPanel").innerHTML = html;
 }
 
+updateUI();
+loadGame();
 updateUI();
