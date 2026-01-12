@@ -2,26 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Paperclips</title>
+  <title>Universal Paperclips</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Universal Paperclips</h1>
 
-<p>Paperclips: <span id="clips">0</span></p>
-<p>Money: $<span id="money">0.00</span></p>
-<p>Price per Clip: $<span id="price">0.25</span></p>
+<div id="status">
+  <p>Phase: <span id="phaseLabel">I</span></p>
+  <p>Paperclips: <span id="clips">0</span></p>
+  <p>Total Clips: <span id="totalClips">0</span></p>
+  <p>Money: $<span id="money">0.00</span></p>
+  <p>Price: $<span id="price">0.25</span></p>
+</div>
 
 <button onclick="makeClip()">Make Paperclip</button>
 
-<h2>Automation</h2>
+<h2>Production</h2>
 <p>Auto-Clippers: <span id="autoClippers">0</span></p>
 <button onclick="buyAutoClipper()">Buy Auto-Clipper ($10)</button>
 
 <h2>Pricing</h2>
 <button onclick="changePrice(-0.01)">Lower Price</button>
 <button onclick="changePrice(0.01)">Raise Price</button>
+
+<div id="computePanel" style="display:none;">
+  <h2>Computation</h2>
+  <p>Trust: <span id="trust">0</span></p>
+  <p>Processors: <span id="processors">1</span></p>
+  <p>Memory: <span id="memory">1</span></p>
+  <button onclick="buyTrust()">Increase Trust ($20)</button>
+</div>
+
+<div id="automationPanel" style="display:none;">
+  <h2>Automation</h2>
+  <p>Drones: <span id="drones">0</span></p>
+  <button onclick="buildDrone()">Build Drone</button>
+</div>
+
+<div id="spacePanel" style="display:none;">
+  <h2>Space Exploration</h2>
+  <p>Probes: <span id="probes">0</span></p>
+  <p>Universe Converted: <span id="universe">0</span>%</p>
+
+  <h3>Probe Priorities</h3>
+  <label>Explore <input type="range" min="0" max="100" id="exploreSlider"></label>
+  <label>Replicate <input type="range" min="0" max="100" id="replicateSlider"></label>
+  <label>Harvest <input type="range" min="0" max="100" id="harvestSlider"></label>
+
+  <button onclick="launchProbe()">Launch Probe</button>
+</div>
+
+<div id="endPanel" style="display:none;">
+  <h2>Final Phase</h2>
+  <p>The universe has been optimized.</p>
+</div>
 
 <script src="script.js"></script>
 </body>
